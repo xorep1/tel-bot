@@ -12,7 +12,7 @@ from datetime import datetime, timezone, timedelta
 # تنظیمات لاگ
 logging.basicConfig(level=logging.INFO)
 
-TOKEN = "Your_bot_token"
+TOKEN = "YOUR_BOT_TOKEN"
 
 def extract_price_from_text(text):
     """استخراج هوشمند قیمت و تفکیک دقیق آن از درصد نوسان یا متون چسبیده"""
@@ -81,18 +81,15 @@ async def gold_dollar_command(update: Update, context: ContextTypes.DEFAULT_TYPE
         "📊 **گزارش لحظه‌ای بازار ارز، طلا و دیجیتال**\n"
         "🔹━━━━━━━━━━━━━━━━🔹\n\n"
         "💰 **مسکوکات و طلا:**\n"
-        f"👑 سکه امامی: `{prices.get('سکه امامی', 'نامشخص')}` تومان\n"
-        f"🔸 نیم سکه: `{prices.get('نیم سکه', 'نامشخص')}` تومان\n"
-        f"🔸 ربع سکه: `{prices.get('ربع سکه', 'نامشخص')}` تومان\n"
-        f"🔸 سکه گرمی: `{prices.get('سکه گرمی', 'نامشخص')}` تومان\n"
-        f"⚜️ مثقال طلا: `{prices.get('مثقال طلا', 'نامشخص')}` تومان\n\n"
+        f"👑 سکه امامی: `{prices.get('سکه امامی', 'نامشخص')}` ریال\n"
+        f"🔸 نیم سکه: `{prices.get('نیم سکه', 'نامشخص')}` ریال\n"
+        f"🔸 ربع سکه: `{prices.get('ربع سکه', 'نامشخص')}` ریال\n\n"
         "💵 **ارزهای سنتی:**\n"
-        f"🇺🇸 دلار بازار آزاد: `{prices.get('دلار', 'نامشخص')}` تومان\n\n"
+        f"🇺🇸 دلار بازار آزاد: `{prices.get('دلار', 'نامشخص')}` ریال\n\n"
+        
         "🪙 **ارزهای دیجیتال (دلار):**\n"
-        f"₿ بیت‌کوین: `{prices.get('بیت کوین', 'نامشخص')}` $\n"
-        f"♦️ اتریوم: `{prices.get('اتریوم', 'نامشخص')}` $\n"
-        f"🐕 دوج‌کوین: `{prices.get('دوج کوین', 'نامشخص')}` $\n"
-        f"🔶 بایننس‌کوین: `{prices.get('بایننس کوین', 'نامشخص')}` $\n\n"
+        f"₿ بیت‌کوین: `{prices.get('بیت کوین', 'نامشخص')}` $\n\n"
+        
         "🛢️ **انرژی (بشکه‌ای / دلار):**\n"
         f"🇪🇺 نفت برنت: `{prices.get('نفت برنت', 'نامشخص')}`\n"
         f"🇺🇸 نفت تگزاس (WTI): `{prices.get('نفت WTI', 'نامشخص')}`\n"
@@ -102,13 +99,15 @@ async def gold_dollar_command(update: Update, context: ContextTypes.DEFAULT_TYPE
     )
     await update.message.reply_text(text, parse_mode="Markdown")
 
-# 📥 ۱. تابع جدید برای پاسخ به پیام متنی s بدون نیاز به اسلش
+# 📥 تابع برای پاسخ به پیام متنی
 async def s_text_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # متنی که می‌خواهید ربات در پاسخ به s بفرستد
     replies_list = [
-        "پیام 1",
-        "پیام 2",
-        "پیام 3"
+        "text 1",
+        "text 2",
+        "text 3",
+        "text 4",
+        "text 5",
     ]
     
     chosen_reply = random.choice(replies_list)
